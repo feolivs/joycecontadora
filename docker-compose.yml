@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  # Adicione mais serviços conforme necessário, como:
+  # - Banco de dados
+  # - Cache
+  # - API
+  # - etc.
+
+networks:
+  app-network:
+    driver: bridge 
